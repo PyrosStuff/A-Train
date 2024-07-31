@@ -2,14 +2,10 @@
 type "txt\ascii.txt"
 echo Rocco Lake 2024, licensed under GNU GPL v3.
 :main
-SET choice=
-SET /p choice=Would you like to see the license? Enter Y (yes) or N (no): 
-IF NOT '%choice%'=='' SET choice=%choice:~0,1%
-FOR %%C IN (Y YES) DO IF /I "%choice%"=="%%~C" GOTO :Yes
-FOR %%C IN (N NO)  DO IF /I "%choice%"=="%%~C" GOTO :No
-ECHO "%choice%" is not valid
-ECHO.
-GOTO main
+choice /c yn /m "Would you like to see the license? "
+if %errorlevel% equ 2 goto no
+if %errorlevel% equ 1 goto yes
+goto main
 
 :blank
 echo Please select an option.
