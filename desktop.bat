@@ -1,5 +1,5 @@
 @ECHO off
-type txt\ascii.txt
+type "txt\ascii.txt"
 echo Rocco Lake 2024, licensed under GNU GPL v3.
 :start
 SET choice=
@@ -16,12 +16,12 @@ echo Please select an option.
 GOTO start
 
 :yes
-type txt\GPL_v3.txt
+type "txt\GPL_v3.txt"
 pause
 GOTO no
 
 :no
-mkdir Output
+mkdir "Output"
 where /r c:\users\%USERNAME%\Desktop *.txt >> Output\desktop.txt
 echo Finished! Check the "Output" folder.
 pause                                        
