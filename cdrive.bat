@@ -1,5 +1,5 @@
 @ECHO off
-type txt\ascii.txt
+type "txt\ascii.txt"
 echo Rocco Lake 2024, licensed under GNU GPL v3.
 :start
 SET choice=
@@ -16,12 +16,12 @@ echo Please select an option.
 GOTO start
 
 :yes
-type txt\GPL_v3.txt
+type "txt\GPL_v3.txt"
 pause
 GOTO no
 
 :no
-mkdir Output
+mkdir "Output"
 echo Since the ENTIRE DRIVE is being scanned, please wait until the command line outputs finished and do not close the window...
 where /r c:\ *.txt >> Output\hard_drive.txt
 echo Finished! Check the "Output" folder.
