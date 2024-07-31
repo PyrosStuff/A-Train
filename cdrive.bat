@@ -5,15 +5,8 @@ echo Rocco Lake 2024, licensed under GNU GPL v3.
 SET choice=
 SET /p choice=Would you like to see the license? Enter Y (yes) or N (no): 
 IF NOT '%choice%'=='' SET choice=%choice:~0,1%
-IF '%choice%'=='Y' GOTO yes
-IF '%choice%'=='y' GOTO yes
-IF '%choice%'=='yes' GOTO yes
-IF '%choice%'=='Yes' GOTO yes
-IF '%choice%'=='N' GOTO no
-IF '%choice%'=='n' GOTO no
-IF '%choice%'=='no' GOTO no
-IF '%choice%'=='No' GOTO no
-IF '%choice%'=='' GOTO 
+FOR %%C IN (Y YES) DO IF /I "%choice%"=="%%~C" GOTO :Yes
+FOR %%C IN (N NO)  DO IF /I "%choice%"=="%%~C" GOTO :No
 ECHO "%choice%" is not valid
 ECHO.
 GOTO start
